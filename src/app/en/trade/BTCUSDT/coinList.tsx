@@ -2,20 +2,24 @@ import React, { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 
 export default function CoinList() {
-  const [searchTerm, setSearchTerm] = useState("");
+  const [searchTerm, setSearchTerm] = useState(""); // 서치 기능 구현용 useState
+
+  // data fetch
   const { data, isLoading, isError } = useQuery({
     queryKey: ["symbols"],
     queryFn: async () =>
       (await fetch("https://api.binance.com/api/v3/exchangeInfo")).json(),
   });
 
-  if (isLoading) return <div>로딩중...</div>;
-  if (isError) return <div>에러가 발생했습니다.</div>;
-
+  if (isLoading) return <div>로딩중...</div>; // 로딩 화면
+  if (isError) return <div>에러가 발생했습니다.</div>; // 에러 화면
+  
+// search 기능용 filter
   const coinData = data.symbols;
   const filteredCoins = coinData.filter((coin) =>
     coin.symbol.toUpperCase().includes(searchTerm.toUpperCase())
   );
+  
   if (!!data)
     return (
       <>
