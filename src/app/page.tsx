@@ -1,6 +1,5 @@
-import Image from "next/image";
-import fetchCoinList from "./api";
 import Link from 'next/link'
+// import { RecoilRoot } from 'recoil';
 
 
 export default function Home() {

@@ -3,7 +3,6 @@ import { useQuery } from "@tanstack/react-query";
 
 export default function CoinList() {
   const [searchTerm, setSearchTerm] = useState(""); // 서치 기능 구현용 useState
-
   // data fetch
   const { data, isLoading, isError } = useQuery({
     queryKey: ["symbols"],
@@ -22,8 +21,7 @@ export default function CoinList() {
   
   if (!!data)
     return (
-      <>
-        <div className="bg-gray-200 w-1/6 h-[60vh] overflow-scroll">
+        <div className="w-1/6 h-[60vh] overflow-scroll">
           <input
             type="text"
             placeholder="Search coins"
@@ -34,7 +32,7 @@ export default function CoinList() {
           <ul className="h-[60vh] p-2">
             {filteredCoins.length > 0 ? (
               filteredCoins.map((coin) => (
-                <li key={coin.symbol}>
+                <li className="cursor-pointer hover:bg-gray-200 p-1" key={coin.symbol}>
                   {coin.symbol} ({coin.baseAsset} / {coin.quoteAsset})
                 </li>
               ))
@@ -43,6 +41,5 @@ export default function CoinList() {
             )}
           </ul>
         </div>
-      </>
     );
 }
