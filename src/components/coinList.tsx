@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 
+import { useRecoilValue } from "recoil";
+import { cryptocurrency } from "@/hooks/store";
+
 export default function CoinList() {
   const [searchTerm, setSearchTerm] = useState(""); // 서치 기능 구현용 useState
   // data fetch
@@ -9,6 +12,7 @@ export default function CoinList() {
     queryFn: async () =>
       (await fetch("https://api.binance.com/api/v3/exchangeInfo")).json(),
   });
+  // const cryptoName = useRecoilValue(cryptocurrency);
 
   if (isLoading) return <div>로딩중...</div>; // 로딩 화면
   if (isError) return <div>에러가 발생했습니다.</div>; // 에러 화면
