@@ -2,12 +2,13 @@
   "name": "krononlab_stask",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://github.com/sohee943/krononlabs_task",
   "scripts": {
     "dev": "next dev --turbopack",
-    "build": "next build",
+    "build": "next build ",
     "start": "next start",
     "lint": "next lint",
-    "deploy": "next build  && touch out/.nojekyll && git add -f out/ && git commit -m 'deploy to gh-pages' && git subtree push --prefix out origin gh-pages"
+    "deploy": "touch out/.nojekyll && git add -f out/ && git commit -m 'deploy-to-gh-pages' && git subtree push --prefix out main gh-pages"
   },
   "dependencies": {
     "@tanstack/react-query": "^5.66.0",
