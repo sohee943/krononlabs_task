@@ -1,9 +1,6 @@
 import React, { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 
-import { useRecoilValue } from "recoil";
-import { cryptocurrency } from "@/hooks/store";
-
 export default function CoinList() {
   const [searchTerm, setSearchTerm] = useState(""); // 서치 기능 구현용 useState
   // data fetch

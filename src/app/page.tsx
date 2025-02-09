@@ -1,4 +1,3 @@
-import Link from 'next/link'
 import CoinView from './en/trade/BTCUSDT/page';
 
 export default function Home() {

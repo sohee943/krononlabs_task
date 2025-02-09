@@ -5,9 +5,6 @@ import CoinList from "@/components/coinList"; // 암호화폐 리스트 & 서치
 import OrderBook from "@/components/orderBook"; // 주문서 출력 & 가격 적용
 import OrderForm from "@/components/orderForm";
 
-import { useRecoilValue } from "recoil";
-import { cryptocurrency } from "@/hooks/store";
-
 export default function CoinView() {
   console.log("this is coinview");
   const [queryClient] = useState(() => new QueryClient());
